@@ -1,0 +1,2 @@
+rezervacija_id,rezervacija_opomba,rezervacija_datum_rezervacije,rezervacija_datum_poteka,knjiga_izvod_id,users_id
+100001,"brez opombe",2023-04-04,2023-05-05,100001,100001

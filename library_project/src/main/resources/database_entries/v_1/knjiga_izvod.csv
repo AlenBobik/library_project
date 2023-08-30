@@ -1,0 +1,8 @@
+knjiga_izvod_id,knjiga_izvod_naslov,knjiga_izvod_isbn,knjiga_izvod_datum_izdaje,knjiga_izvod_image_path
+100001,"The Great Gatsby",0684801523,2013-16-05,"https://i0.wp.com/americanwritersmuseum.org/wp-content/uploads/2018/02/CK-3.jpg?resize=267%2C400&ssl=1"
+100002,"Great Expectations",9788401418761,2023-26-03,"https://storage.googleapis.com/lr-assets/_nielsen/400/9781782264842.jpg"
+100003,"The Catcher in the Rye",9780241900970,1951-16-06,"https://cdn.britannica.com/94/181394-050-2F76F7EE/Reproduction-cover-edition-The-Catcher-in-the.jpg"
+100004,"The Lord of the Rings",9788845292613,2002-17-01,"https://s26162.pcdn.co/wp-content/uploads/2017/05/the-lord-of-the-rings-book-cover.jpg"
+100005,"Alice in Wonderland",9783161484105,1952-26-06,"https://images.penguinrandomhouse.com/cover/9780147510983"
+100006,"Puss in boots the last wish",9781949480450,2022-21-12,"https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781524877552/puss-in-boots-the-last-wish-junior-novel-9781524877552_hr.jpg"
+100007,"The Hobbit",9780044403371,2012-13-12,"https://tolkiengateway.net/w/images/e/e4/The_Hobbit_2016-facsimile.jpeg"

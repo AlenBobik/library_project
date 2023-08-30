@@ -1,0 +1,34 @@
+spring:
+  profiles:
+    active:
+      profile1
+
+  application:
+    name: library_project
+
+  datasource:
+    username: process.env.DATABASE_USERNAME
+    password: process.env.DATABASE_PASSWORD
+    url: jdbc:h2:mem:library
+    driver-class-name: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    database: h2
+    hibernate:
+      ddl-auto: update
+  h2:
+    console.enabled: true
+  liquibase:
+    change-log: db.changelog/db.changelog.yml
+    enabled: true
+
+jwt:
+  secret: process.env.JWT_SECRET
+
+server:
+  port: 4545
+---
+spring:
+  config:
+    activate:
+      on-profile: profile1

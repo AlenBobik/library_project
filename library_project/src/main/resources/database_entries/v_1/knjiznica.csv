@@ -1,0 +1,3 @@
+knjiznica_id,knjiznica_ime,knjiznica_naslov,knjiznica_postna_stevilka,knjiznica_status
+100001,knjiznica1,trubarjeva ulica 35a,3000,AKTIVNA_LOKACIJA
+100002,knjiznica3,pot na lavo 22,3000,NEAKTIVNA_LOKACIJA

@@ -1,0 +1,8 @@
+knjiga_id,knjiga_uuid,knjiga_status,knjiga_vrsta_knjige,knjiga_jezik,knjiga_izdaja,knjiga_izvod_id,knjiznica_id
+100001,f3b006c0-a5fa-11ed-afa1-0242ac120002,IZPOSOJENA,DIGITALNI_FORMAT,slovenščina,1.izdaja,100001,100002
+100002,f3b006c0-a5fa-11ed-afa1-0242ac120003,POSKODOVANA,TISKANA,slovenščina,2.izdaja,100002,100001
+100003,f3b006c0-a5fa-11ed-afa1-0242ac120004,NI_V_UPORABI,TISKANA,slovenščina,1.izdaja,100003,100001
+100004,f3b006c0-a5fa-11ed-afa1-0242ac120005,NA_VOLJO,TISKANA,slovenščina,1.izdaja,100004,100001
+100005,f3b006c0-a5fa-11ed-afa1-0242ac120006,NA_VOLJO,TISKANA,slovenščina,1.izdaja,100005,100001
+100006,f3b006c0-a5fa-11ed-afa1-0242ac120007,NA_VOLJO,TISKANA,slovenščina,2.izdaja,100006,100001
+100007,f3b006c0-a5fa-11ed-afa1-0242ac120008,NA_VOLJO,TISKANA,slovenščina,1.izdaja,100006,100001

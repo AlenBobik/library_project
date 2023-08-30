@@ -1,0 +1,3 @@
+users_id,users_uporabnisko_ime,users_geslo,users_status,role,account_non_expired,account_non_locked,credentials_non_expired,enabled,oseba_id,obvestilo_id,zaposlen_id
+100001,alen,TestGeslo1,ACTIVE,ADMIN,TRUE,TRUE,TRUE,TRUE,100001,,100001
+100002,miha,TestGeslo2,ACTIVE,USER,TRUE,TRUE,TRUE,TRUE,100002,100001,

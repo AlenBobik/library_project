@@ -1,0 +1,583 @@
+databaseChangeLog:
+  - changeSet:
+      id: db.changelog.v_1_knjiga_sequence
+      author: AlenBobik
+      changes:
+        - createSequence:
+            sequenceName: knjiga_id_sequence
+            incrementBy: 1
+            startValue: 1
+
+  - changeSet:
+      id: db.changelog.v_1_knjiga_izvod_sequence
+      author: AlenBobik
+      changes:
+        - createSequence:
+            sequenceName: knjiga_izvod_id_sequence
+            incrementBy: 1
+            startValue: 1
+
+  - changeSet:
+      id: db.changelog.v_1_knjiznica_sequence
+      author: AlenBobik
+      changes:
+        - createSequence:
+            sequenceName: knjiznica_id_sequence
+            incrementBy: 1
+            startValue: 1
+
+  - changeSet:
+      id: db.changelog.v_1_oseba_sequence
+      author: AlenBobik
+      changes:
+        - createSequence:
+            sequenceName: oseba_id_sequence
+            incrementBy: 1
+            startValue: 1
+
+  - changeSet:
+      id: db.changelog.v_1_izkaznica_sequence
+      author: AlenBobik
+      changes:
+        - createSequence:
+            sequenceName: izkaznica_id_sequence
+            incrementBy: 1
+            startValue: 1
+
+  - changeSet:
+      id: db.changelog.v_1_users_sequence
+      author: AlenBobik
+      changes:
+        - createSequence:
+            sequenceName: users_id_sequence
+            incrementBy: 1
+            startValue: 1
+
+  - changeSet:
+      id: db.changelog.v_1_obvestilo_sequence
+      author: AlenBobik
+      changes:
+        - createSequence:
+            sequenceName: obvestilo_id_sequence
+            incrementBy: 1
+            startValue: 1
+
+  - changeSet:
+      id: db.changelog.v_1_zaposlen_sequence
+      author: AlenBobik
+      changes:
+        - createSequence:
+            sequenceName: zaposlen_id_sequence
+            incrementBy: 1
+            startValue: 1
+
+  - changeSet:
+      id: db.changelog.v_1_avtor_sequence
+      author: AlenBobik
+      changes:
+        - createSequence:
+            sequenceName: avtor_id_sequence
+            incrementBy: 1
+            startValue: 1
+
+  - changeSet:
+      id: db.changelog.v_1_knjizna_polica_sequence
+      author: AlenBobik
+      changes:
+        - createSequence:
+            sequenceName: knjizna_polica_id_sequence
+            incrementBy: 1
+            startValue: 1
+
+  - changeSet:
+      id: db.changelog.v_1_rezervacija_sequence
+      author: AlenBobik
+      changes:
+        - createSequence:
+            sequenceName: rezervacija_id_sequence
+            incrementBy: 1
+            startValue: 1
+
+  - changeSet:
+      id: db.changelog.v_1_izposoja_sequence
+      author: AlenBobik
+      changes:
+        - createSequence:
+            sequenceName: izposoja_id_sequence
+            incrementBy: 1
+            startValue: 1
+
+  - changeSet:
+      id: db.changelog.v_1_create_knjiga_table
+      author: AlenBobik
+      changes:
+        - createTable:
+            tableName: knjiga
+            columns:
+              - column:
+                  name: knjiga_id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: knjiga_id_pk
+              - column:
+                  name: knjiga_uuid
+                  type: uuid
+              - column:
+                  name: knjiga_status
+                  type: varchar(12)
+              - column:
+                  name: knjiga_vrsta_knjige
+                  type: varchar(20)
+              - column:
+                  name: knjiga_jezik
+                  type: varchar(20)
+              - column:
+                  name: knjiga_izdaja
+                  type: varchar(20)
+              - column:
+                  name: knjiznica_id
+                  type: bigint
+                  constraints:
+                    foreignKey:
+                      name: knjiga_knjiznica_id_fk
+                      references: knjiznica(knjiznica_id)
+              - column:
+                  name: knjiga_izvod_id
+                  type: bigint
+                  constraints:
+                    foreignKey:
+                      name: knjiga_knjiga_izvod_id_fk
+                      references: knjiga_izvod(knjiga_izvod_id)
+
+  - changeSet:
+      id: db.changelog.v_1_create_avtor_table
+      author: AlenBobik
+      changes:
+        - createTable:
+            tableName: avtor
+            columns:
+              - column:
+                  name: avtor_id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: avtor_id_pk
+              - column:
+                  name: avtor_ime_priimek
+                  type: varchar(50)
+
+  - changeSet:
+      id: db.changelog.v_1_create_knjizna_polica_table
+      author: AlenBobik
+      changes:
+        - createTable:
+            tableName: knjizna_polica
+            columns:
+              - column:
+                  name: knjizna_polica_id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: knjizna_polica_id_pk
+              - column:
+                  name: knjizna_polica_oznaka
+                  type: varchar(10)
+
+  - changeSet:
+      id: db.changelog.v_1_create_knjiga_izvod_table
+      author: AlenBobik
+      changes:
+        - createTable:
+            tableName: knjiga_izvod
+            columns:
+              - column:
+                  name: knjiga_izvod_id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: knjiga_izvod_id_pk
+              - column:
+                  name: knjiga_izvod_naslov
+                  type: varchar(50)
+              - column:
+                  name: knjiga_izvod_isbn
+                  type: varchar(13)
+              - column:
+                  name: knjiga_izvod_datum_izdaje
+                  type: date
+              - column:
+                  name: knjiga_izvod_image_path
+                  type: varchar(1000)
+
+  - changeSet:
+      id: db.changelog.v_1_create_knjiznica_table
+      author: AlenBobik
+      changes:
+        - createTable:
+            tableName: knjiznica
+            columns:
+              - column:
+                  name: knjiznica_id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: knjiznica_id_pk
+              - column:
+                  name: knjiznica_ime
+                  type: varchar(50)
+              - column:
+                  name: knjiznica_naslov
+                  type: varchar(50)
+              - column:
+                  name: knjiznica_postna_stevilka
+                  type: varchar(4)
+              - column:
+                  name: knjiznica_status
+                  type: varchar(18)
+
+  - changeSet:
+      id: db.changelog.v_1_create_izkaznica_table
+      author: AlenBobik
+      changes:
+        - createTable:
+            tableName: izkaznica
+            columns:
+              - column:
+                  name: izkaznica_id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: izkaznica_id_pk
+              - column:
+                  name: izkaznica_oznaka
+                  type: varchar(5)
+              - column:
+                  name: izkaznica_datum_izdaje
+                  type: date
+              - column:
+                  name: izkaznica_datum_poteka
+                  type: date
+              - column:
+                  name: izkaznica_status
+                  type: varchar(8)
+
+  - changeSet:
+      id: db.changelog.v_1_create_oseba_table
+      author: AlenBobik
+      changes:
+        - createTable:
+            tableName: oseba
+            columns:
+              - column:
+                  name: oseba_id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    primarykeyName: oseba_id_pk
+              - column:
+                  name: oseba_ime
+                  type: varchar(50)
+              - column:
+                  name: oseba_priimek
+                  type: varchar(50)
+              - column:
+                  name: oseba_datum_rojstva
+                  type: date
+              - column:
+                  name: oseba_spol
+                  type: varchar(2)
+              - column:
+                  name: oseba_emso
+                  type: long
+              - column:
+                  name: oseba_e_mail
+                  type: varchar(50)
+              - column:
+                  name: oseba_telefon
+                  type: varchar(9)
+              - column:
+                  name: oseba_status
+                  type: varchar(8)
+              - column:
+                  name: izkaznica_id
+                  type: bigint
+                  constraints:
+                    foreignKey:
+                      name: oseba_izkaznica_id_fk
+                      references: izkaznica(izkaznica_id)
+
+  - changeSet:
+      id: db.changelog.v_1_create_obvestilo_table
+      author: AlenBobik
+      changes:
+        - createTable:
+            tableName: obvestilo
+            columns:
+              - column:
+                  name: obvestilo_id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: obvestilo_id_pk
+              - column:
+                  name: obvestilo_ime
+                  type: varchar(50)
+              - column:
+                  name: obvestilo_opis
+                  type: varchar(200)
+              - column:
+                  name: obvestilo_datum
+                  type: date
+
+  - changeSet:
+      id: db.changelog.v_1_create_zaposlen_table
+      author: AlenBobik
+      changes:
+        - createTable:
+            tableName: zaposlen
+            columns:
+              - column:
+                  name: zaposlen_id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: zaposlen_id_pk
+              - column:
+                  name: zaposlen_oznaka_pogodbe
+                  type: varchar(20)
+              - column:
+                  name: zaposlen_od
+                  type: date
+              - column:
+                  name: zaposlen_do
+                  type: date
+
+  - changeSet:
+      id: db.changelog.v_1_create_users_table
+      author: AlenBobik
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: users_id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: users_id_pk
+              - column:
+                  name: users_uporabnisko_ime
+                  type: varchar(30)
+              - column:
+                  name: users_geslo
+                  type: varchar(64)
+              - column:
+                  name: users_status
+                  type: varchar(8)
+              - column:
+                  name: role
+                  type: varchar(5)
+              - column:
+                  name: account_non_expired
+                  type: boolean
+              - column:
+                  name: account_non_locked
+                  type: boolean
+              - column:
+                  name: credentials_non_expired
+                  type: boolean
+              - column:
+                  name: enabled
+                  type: boolean
+              - column:
+                  name: oseba_id
+                  type: bigint
+                  constraints:
+                    foreignKey:
+                      name: users_oseba_id_fk
+                      references: oseba(oseba_id)
+              - column:
+                  name: obvestilo_id
+                  type: bigint
+                  constraints:
+                    foreignKey:
+                      name: users_obvestilo_id_fk
+                      references: obvestilo(obvestilo_id)
+              - column:
+                  name: zaposlen_id
+                  type: bigint
+                  constraints:
+                    foreignKey:
+                      name: users_zaposlen_id_fk
+                      references: zaposlen(zaposlen_id)
+
+  - changeSet:
+      id: db.changelog.v_1_create_izposoja_table
+      author: AlenBobik
+      changes:
+        - createTable:
+            tableName: izposoja
+            columns:
+              - column:
+                  name: izposoja_id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: izposoja_id_pk
+              - column:
+                  name: izposoja_opomba
+                  type: varchar(100)
+              - column:
+                  name: izposoja_datum_izposoje
+                  type: date
+              - column:
+                  name: izposoja_datum_poteka
+                  type: date
+              - column:
+                  name: knjiga_izvod_id
+                  type: bigint
+                  constraints:
+                    foreignKey:
+                      name: izposoja_knjiga_izvod_id_fk
+                      references: knjiga_izvod(knjiga_izvod_id)
+              - column:
+                  name: users_id
+                  type: bigint
+                  constraints:
+                    foreignKey:
+                      name: izposoja_users_id_fk
+                      references: users(users_id)
+
+  - changeSet:
+      id: db.changelog.v_1_create_rezervacija_table
+      author: AlenBobik
+      changes:
+        - createTable:
+            tableName: rezervacija
+            columns:
+              - column:
+                  name: rezervacija_id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: rezervacija_id_pk
+              - column:
+                  name: rezervacija_opomba
+                  type: varchar(100)
+              - column:
+                  name: rezervacija_datum_rezervacije
+                  type: date
+              - column:
+                  name: rezervacija_datum_poteka
+                  type: date
+              - column:
+                  name: knjiga_izvod_id
+                  type: bigint
+                  constraints:
+                    foreignKey:
+                      name: rezervacija_knjiga_izvod_id_fk
+                      references: knjiga_izvod(knjiga_izvod_id)
+              - column:
+                  name: users_id
+                  type: bigint
+                  constraints:
+                    foreignKey:
+                      name: rezervacija_users_id_fk
+                      references: users(users_id)
+
+  - changeSet:
+      id: db.changelog.v_1_inserting_into_knjiga_izvod_table
+      author: AlenBobik
+      changes:
+        - loadData:
+            file: database_entries/v_1/knjiga_izvod.csv
+            tableName: knjiga_izvod
+
+  - changeSet:
+      id: db.changelog.v_1_inserting_into_knjiznica_table
+      author: AlenBobik
+      changes:
+        - loadData:
+            file: database_entries/v_1/knjiznica.csv
+            tableName: knjiznica
+
+  - changeSet:
+      id: db.changelog.v_1_inserting_into_knjiga_table
+      author: AlenBobik
+      changes:
+        - loadData:
+            file: database_entries/v_1/knjiga.csv
+            tableName: knjiga
+
+  - changeSet:
+      id: db.changelog.v_1_inserting_into_oseba_table
+      author: AlenBobik
+      changes:
+        - loadData:
+            file: database_entries/v_1/oseba.csv
+            tableName: oseba
+
+  - changeSet:
+      id: db.changelog.v_1_inserting_into_izkaznica_table
+      author: AlenBobik
+      changes:
+        - loadData:
+            file: database_entries/v_1/izkaznica.csv
+            tableName: izkaznica
+
+  - changeSet:
+      id: db.changelog.v_1_inserting_into_users_table
+      author: AlenBobik
+      changes:
+        - loadData:
+            file: database_entries/v_1/user.csv
+            tableName: users
+
+  - changeSet:
+      id: db.changelog.v_1_inserting_into_obvestilo_table
+      author: AlenBobik
+      changes:
+        - loadData:
+            file: database_entries/v_1/obvestilo.csv
+            tableName: obvestilo
+
+  - changeSet:
+      id: db.changelog.v_1_inserting_into_zaposlen_table
+      author: AlenBobik
+      changes:
+        - loadData:
+            file: database_entries/v_1/zaposlen.csv
+            tableName: zaposlen
+
+  - changeSet:
+      id: db.changelog.v_1_inserting_into_avtor_table
+      author: AlenBobik
+      changes:
+        - loadData:
+            file: database_entries/v_1/avtor.csv
+            tableName: avtor
+
+  - changeSet:
+      id: db.changelog.v_1_inserting_into_knjizna_polica_table
+      author: AlenBobik
+      changes:
+        - loadData:
+            file: database_entries/v_1/knjizna_polica.csv
+            tableName: knjizna_polica
+
+  - changeSet:
+      id: db.changelog.v_1_inserting_into_rezervacija_table
+      author: AlenBobik
+      changes:
+        - loadData:
+            file: database_entries/v_1/rezervacija.csv
+            tableName: rezervacija
+
+  - changeSet:
+      id: db.changelog.v_1_inserting_into_izposoja_table
+      author: AlenBobik
+      changes:
+        - loadData:
+            file: database_entries/v_1/izposoja.csv
+            tableName: izposoja
